@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dr. [Your Name] - Academic Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            line-height: 1.6;
+            color: #333;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        .profile-content {
+            position: relative;
+            z-index: 1;
+        }
+
+        .profile-img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin: 0 auto 1rem;
+            background: linear-gradient(45deg, #667eea, #764ba2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: white;
+            transition: transform 0.3s ease;
+        }
+
+        .profile-img:hover {
+            transform: scale(1.05);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: #2c3e50;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            margin-bottom: 1rem;
+        }
+
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: #34495e;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .contact-item:hover {
+            color: #667eea;
+        }
+
+        nav {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #34495e;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.2), transparent);
+            transition: left 0.5s ease;
+        }
+
+        nav a:hover::before {
+            left: 100%;
+        }
+
+        nav a:hover {
+            background: rgba(102, 126, 234, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .section {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease;
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+        }
+
+        .section h2 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.8rem;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section h2::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 50px;
+            height: 3px;
+            background: linear-gradient(90deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+
+        .research-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .research-card {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 15px;
+            padding: 1.5rem;
+            border-left: 4px solid #667eea;
+            transition: all 0.3s ease;
+        }
+
+        .research-card:hover {
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
+            transform: translateX(5px);
+        }
+
+        .research-card h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .publication {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-left: 3px solid #764ba2;
+            transition: all 0.3s ease;
+        }
+
+        .publication:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: translateX(5px);
+        }
+
+        .publication-title {
+            font-weight: bold;
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+
+        .publication-details {
+            color: #7f8c8d;
+            font-size: 0.9rem;
+        }
+
+        .teaching-item {
+            background: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            padding: 1rem;
+            margin-bottom: 1rem;
+            border-left: 3px solid #e67e22;
+            transition: all 0.3s ease;
+        }
+
+        .teaching-item:hover {
+            background: rgba(255, 255, 255, 1);
+            transform: translateX(5px);
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        footer {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            padding: 1rem;
+            text-align: center;
+            color: #7f8c8d;
+            margin-top: 2rem;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                gap: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="profile-content">
+                <div class="profile-img">
+                    👨‍🎓
+                </div>
+                <h1>Dr. [Your Name]</h1>
+                <p class="subtitle">[Your Title] | [Your Department] | [Your University]</p>
+                <div class="contact-info">
+                    <a href="mailto:your.email@university.edu" class="contact-item">
+                        📧 your.email@university.edu
+                    </a>
+                    <a href="https://scholar.google.com/citations?user=YOUR_ID" class="contact-item">
+                        🎓 Google Scholar
+                    </a>
+                    <a href="https://orcid.org/YOUR_ORCID" class="contact-item">
+                        🔬 ORCID
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <nav>
+            <ul>
+                <li><a href="#about" onclick="showSection('about')">About</a></li>
+                <li><a href="#research" onclick="showSection('research')">Research</a></li>
+                <li><a href="#publications" onclick="showSection('publications')">Publications</a></li>
+                <li><a href="#teaching" onclick="showSection('teaching')">Teaching</a></li>
+                <li><a href="#diversity" onclick="showSection('diversity')">Diversity & Inclusion</a></li>
+                <li><a href="#cv" onclick="showSection('cv')">CV</a></li>
+            </ul>
+        </nav>
+
+        <div id="about" class="section">
+            <h2>About Me</h2>
+            <p>Welcome to my academic website! I am [Your Name], a [Your Position] in the [Your Department] at [Your University]. My research focuses on [brief description of your research area].</p>
+            <p>I am passionate about [your research interests] and committed to fostering an inclusive academic environment. My work has been published in [mention key journals/venues], and I have been honored to receive [mention key awards or recognitions].</p>
+            <p>When I'm not in the lab or classroom, I enjoy [personal interests that show your human side].</p>
+        </div>
+
+        <div id="research" class="section hidden">
+            <h2>Research</h2>
+            <p>My research statement outlines my scholarly work and future directions in [your field]. I focus on addressing fundamental questions about [your research area] through [your methodological approach].</p>
+            
+            <div class="research-grid">
+                <div class="research-card">
+                    <h3>Current Research Project 1</h3>
+                    <p>Brief description of your ongoing research project, its significance, and expected outcomes.</p>
+                </div>
+                <div class="research-card">
+                    <h3>Current Research Project 2</h3>
+                    <p>Brief description of another research project, highlighting its innovation and potential impact.</p>
+                </div>
+                <div class="research-card">
+                    <h3>Future Directions</h3>
+                    <p>Overview of your research vision and planned investigations for the coming years.</p>
+                </div>
+            </div>
+            
+            <h3>Research Statement</h3>
+            <p>My research program is built on the foundation of [your core research philosophy]. I investigate [specific research questions] using [methodological approaches]. This work contributes to [broader field impact] and has implications for [practical applications].</p>
+            
+            <p>My future research agenda includes [future directions], which will advance our understanding of [field/topic] and potentially lead to [anticipated outcomes or applications].</p>
+        </div>
+
+        <div id="publications" class="section hidden">
+            <h2>Publications</h2>
+            <div class="publication">
+                <div class="publication-title">Your Most Recent Publication Title</div>
+                <div class="publication-details">Authors, Journal Name, Year. DOI: [link]</div>
+            </div>
+            <div class="publication">
+                <div class="publication-title">Another Important Publication</div>
+                <div class="publication-details">Authors, Conference/Journal Name, Year. DOI: [link]</div>
+            </div>
+            <div class="publication">
+                <div class="publication-title">Earlier Work That Established Your Expertise</div>
+                <div class="publication-details">Authors, Journal Name, Year. DOI: [link]</div>
+            </div>
+            <p><strong>Note:</strong> For a complete list of publications, please visit my <a href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank">Google Scholar profile</a>.</p>
+        </div>
+
+        <div id="teaching" class="section hidden">
+            <h2>Teaching</h2>
+            <p>My teaching philosophy centers on [your core teaching beliefs]. I believe that effective education requires [your approach to teaching], and I strive to create an inclusive learning environment where all students can thrive.</p>
+            
+            <h3>Courses Taught</h3>
+            <div class="teaching-item">
+                <strong>Course Name (Course Code)</strong>
+                <p>Brief description of the course, your role, and any innovations you've implemented.</p>
+            </div>
+            <div class="teaching-item">
+                <strong>Another Course (Course Code)</strong>
+                <p>Description of another course you've taught and your teaching approach.</p>
+            </div>
+            
+            <h3>Teaching Statement</h3>
+            <p>My teaching statement reflects my commitment to [educational values]. I employ [teaching methods] to engage students and promote deep learning. My approach includes [specific strategies] that have proven effective in [context/results].</p>
+            
+            <p>I am dedicated to mentoring students at all levels, from undergraduates to graduate students and postdocs. My mentoring philosophy emphasizes [mentoring approach] and has resulted in [mentoring outcomes].</p>
+        </div>
+
+        <div id="diversity" class="section hidden">
+            <h2>Diversity & Inclusion</h2>
+            <p>I am deeply committed to promoting diversity, equity, and inclusion in academia and beyond. My diversity statement outlines my dedication to creating an environment where all individuals can succeed regardless of their background.</p>
+            
+            <h3>My Commitment</h3>
+            <p>I believe that diversity strengthens our academic community and enhances the quality of research and education. My efforts to promote inclusion include [specific examples of your diversity work].</p>
+            
+            <h3>Diversity Statement</h3>
+            <p>My diversity statement reflects my personal journey and professional commitment to equity. I have [personal experiences that inform your perspective] and have worked to [specific actions you've taken].</p>
+            
+            <p>In my research, I [how you promote diversity in research]. In my teaching, I [how you create inclusive classrooms]. In service, I [how you contribute to institutional diversity efforts].</p>
+            
+            <p>Moving forward, I plan to [future diversity goals and initiatives] to continue advancing equity in [your field/institution].</p>
+        </div>
+
+        <div id="cv" class="section hidden">
+            <h2>Curriculum Vitae</h2>
+            <p>Download my complete CV: <a href="CV_YourName.pdf" target="_blank">CV_YourName.pdf</a></p>
+            
+            <h3>Education</h3>
+            <ul>
+                <li>Ph.D. in [Field], [University], [Year]</li>
+                <li>M.S. in [Field], [University], [Year]</li>
+                <li>B.S. in [Field], [University], [Year]</li>
+            </ul>
+            
+            <h3>Professional Experience</h3>
+            <ul>
+                <li>[Current Position], [Institution], [Years]</li>
+                <li>[Previous Position], [Institution], [Years]</li>
+            </ul>
+            
+            <h3>Selected Awards & Honors</h3>
+            <ul>
+                <li>[Award Name], [Year]</li>
+                <li>[Another Award], [Year]</li>
+            </ul>
+        </div>
+
+        <footer>
+            <p>&copy; 2024 [Your Name]. Built with HTML, CSS, and JavaScript. Hosted on GitHub Pages.</p>
+        </footer>
+    </div>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.add('hidden');
+            });
+            
+            // Show the selected section
+            document.getElementById(sectionId).classList.remove('hidden');
+            
+            // Update URL hash
+            window.location.hash = sectionId;
+        }
+        
+        // Show the correct section on page load
+        window.addEventListener('load', function() {
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                showSection(hash);
+            } else {
+                showSection('about');
+            }
+        });
+        
+        // Handle back/forward navigation
+        window.addEventListener('hashchange', function() {
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                showSection(hash);
+            }
+        });
+    </script>
+</body>
+</html>
