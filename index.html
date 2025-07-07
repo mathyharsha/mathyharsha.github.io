@@ -12,11 +12,39 @@
         }
 
         body {
-            font-family: 'Georgia', serif;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             line-height: 1.6;
             color: #333;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
             min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        /* Floating particles background */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
         }
 
         .container {
@@ -25,27 +53,69 @@
             padding: 20px;
         }
 
+        /* Header with animated profile */
         header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 2rem;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            padding: 3rem 2rem;
             margin-bottom: 2rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
             text-align: center;
             position: relative;
             overflow: hidden;
+            cursor: pointer;
+            transition: all 0.4s ease;
         }
 
-        header::before {
-            content: '';
+        header:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .profile-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .profile-img {
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            margin: 0 auto 2rem;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: white;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.5s ease;
+            animation: pulse 3s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        .profile-img:hover {
+            transform: scale(1.1) rotate(5deg);
+            box-shadow: 0 0 30px rgba(255, 107, 107, 0.6);
+        }
+
+        .profile-ring {
             position: absolute;
-            top: -50%;
-            left: -50%;
-            width: 200%;
-            height: 200%;
-            background: radial-gradient(circle, rgba(102, 126, 234, 0.1) 0%, transparent 70%);
-            animation: rotate 20s linear infinite;
+            top: -10px;
+            left: -10px;
+            right: -10px;
+            bottom: -10px;
+            border: 2px solid transparent;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4, #45b7d1);
+            background-clip: padding-box;
+            animation: rotate 10s linear infinite;
         }
 
         @keyframes rotate {
@@ -53,129 +123,158 @@
             100% { transform: rotate(360deg); }
         }
 
-        .profile-content {
-            position: relative;
-            z-index: 1;
-        }
-
-        .profile-img {
-            width: 150px;
-            height: 150px;
-            border-radius: 50%;
-            margin: 0 auto 1rem;
-            background: linear-gradient(45deg, #667eea, #764ba2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 3rem;
-            color: white;
-            transition: transform 0.3s ease;
-        }
-
-        .profile-img:hover {
-            transform: scale(1.05);
-        }
-
         h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            color: #2c3e50;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 1s ease;
+        }
+
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .subtitle {
-            font-size: 1.2rem;
-            color: #7f8c8d;
-            margin-bottom: 1rem;
+            font-size: 1.4rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.2s both;
         }
 
-        .contact-info {
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-            margin-top: 1rem;
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-top: 2rem;
         }
 
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            color: #34495e;
-            text-decoration: none;
-            transition: color 0.3s ease;
-        }
-
-        .contact-item:hover {
-            color: #667eea;
-        }
-
-        nav {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
+        .contact-card {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 15px;
             padding: 1rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 2rem;
-            flex-wrap: wrap;
-        }
-
-        nav a {
             text-decoration: none;
-            color: #34495e;
-            font-weight: 500;
-            padding: 0.5rem 1rem;
-            border-radius: 10px;
+            color: white;
             transition: all 0.3s ease;
+            cursor: pointer;
             position: relative;
             overflow: hidden;
         }
 
-        nav a::before {
+        .contact-card::before {
             content: '';
             position: absolute;
             top: 0;
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(102, 126, 234, 0.2), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
             transition: left 0.5s ease;
         }
 
-        nav a:hover::before {
+        .contact-card:hover::before {
             left: 100%;
         }
 
-        nav a:hover {
-            background: rgba(102, 126, 234, 0.1);
-            transform: translateY(-2px);
-        }
-
-        .section {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 2rem;
-            margin-bottom: 2rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-            transition: transform 0.3s ease;
-        }
-
-        .section:hover {
+        .contact-card:hover {
+            background: rgba(255, 255, 255, 0.2);
             transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        .contact-icon {
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            display: block;
+        }
+
+        /* Interactive Navigation */
+        nav {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 1rem;
+            margin-bottom: 2rem;
+            position: sticky;
+            top: 20px;
+            z-index: 100;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            display: block;
+            text-decoration: none;
+            color: white;
+            font-weight: 600;
+            padding: 1rem 2rem;
+            border-radius: 15px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        nav a.active {
+            background: rgba(255, 255, 255, 0.2);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        nav a::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 0;
+            height: 100%;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
+            transition: width 0.3s ease;
+            z-index: -1;
+        }
+
+        nav a:hover::before {
+            width: 100%;
+        }
+
+        nav a:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Enhanced Sections */
+        .section {
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            padding: 3rem;
+            margin-bottom: 2rem;
+            color: white;
+            position: relative;
+            overflow: hidden;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.5s ease;
+        }
+
+        .section.active {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .section h2 {
-            color: #2c3e50;
-            margin-bottom: 1rem;
-            font-size: 1.8rem;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: white;
             position: relative;
             display: inline-block;
         }
@@ -183,279 +282,556 @@
         .section h2::after {
             content: '';
             position: absolute;
-            bottom: -5px;
+            bottom: -10px;
             left: 0;
-            width: 50px;
-            height: 3px;
-            background: linear-gradient(90deg, #667eea, #764ba2);
+            width: 0;
+            height: 4px;
+            background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
             border-radius: 2px;
+            animation: expandLine 1s ease 0.5s forwards;
         }
 
+        @keyframes expandLine {
+            to { width: 100%; }
+        }
+
+        /* Interactive Cards */
+        .card {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(255, 107, 107, 0.1), rgba(78, 205, 196, 0.1));
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .card:hover::before {
+            opacity: 1;
+        }
+
+        .card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+        .card h3 {
+            color: #4ecdc4;
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+        }
+
+        /* Research Grid */
         .research-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 1rem;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
         }
 
         .research-card {
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 15px;
-            padding: 1.5rem;
-            border-left: 4px solid #667eea;
-            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .research-card::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 107, 107, 0.1) 0%, transparent 70%);
+            transform: scale(0);
+            transition: transform 0.5s ease;
+        }
+
+        .research-card:hover::before {
+            transform: scale(1);
         }
 
         .research-card:hover {
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.15);
-            transform: translateX(5px);
+            transform: translateY(-10px) rotateY(5deg);
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.4);
         }
 
         .research-card h3 {
-            color: #2c3e50;
-            margin-bottom: 0.5rem;
-        }
-
-        .publication {
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 10px;
-            padding: 1rem;
+            color: #ff6b6b;
             margin-bottom: 1rem;
-            border-left: 3px solid #764ba2;
+            font-size: 1.4rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        .research-card p {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Timeline for experience */
+        .timeline {
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(to bottom, #ff6b6b, #4ecdc4);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            position: relative;
+            margin-bottom: 2rem;
+            padding-left: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -1.5rem;
+            top: 0.5rem;
+            width: 1rem;
+            height: 1rem;
+            background: #4ecdc4;
+            border-radius: 50%;
+            border: 3px solid white;
+            box-shadow: 0 0 10px rgba(78, 205, 196, 0.5);
+        }
+
+        .timeline-item:hover::before {
+            animation: pulse 1s ease;
+        }
+
+        /* Click-to-expand functionality */
+        .expandable {
+            cursor: pointer;
+            position: relative;
+        }
+
+        .expandable-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+
+        .expandable.expanded .expandable-content {
+            max-height: 1000px;
+        }
+
+        .expand-icon {
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
+        .expandable.expanded .expand-icon {
+            transform: rotate(180deg);
+        }
+
+        /* Floating Action Button */
+        .fab {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(45deg, #ff6b6b, #4ecdc4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
             transition: all 0.3s ease;
+            z-index: 1000;
         }
 
-        .publication:hover {
-            background: rgba(255, 255, 255, 1);
-            transform: translateX(5px);
+        .fab:hover {
+            transform: scale(1.1);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.4);
         }
 
-        .publication-title {
+        /* Education and Awards styling */
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .education-card {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .education-card:hover {
+            transform: translateY(-5px);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        .degree {
+            font-size: 1.2rem;
             font-weight: bold;
-            color: #2c3e50;
+            color: #4ecdc4;
             margin-bottom: 0.5rem;
         }
 
-        .publication-details {
-            color: #7f8c8d;
-            font-size: 0.9rem;
+        .institution {
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 0.5rem;
         }
 
-        .teaching-item {
-            background: rgba(255, 255, 255, 0.8);
-            border-radius: 10px;
-            padding: 1rem;
-            margin-bottom: 1rem;
-            border-left: 3px solid #e67e22;
-            transition: all 0.3s ease;
+        .year {
+            color: #ff6b6b;
+            font-weight: bold;
         }
 
-        .teaching-item:hover {
-            background: rgba(255, 255, 255, 1);
-            transform: translateX(5px);
-        }
-
+        /* Hidden class */
         .hidden {
             display: none;
         }
 
-        footer {
-            background: rgba(255, 255, 255, 0.9);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 1rem;
-            text-align: center;
-            color: #7f8c8d;
-            margin-top: 2rem;
-        }
-
+        /* Responsive Design */
         @media (max-width: 768px) {
             .container {
                 padding: 10px;
             }
-            
+
             h1 {
                 font-size: 2rem;
             }
-            
-            .contact-info {
-                flex-direction: column;
-                gap: 1rem;
+
+            .profile-img {
+                width: 120px;
+                height: 120px;
+                font-size: 2.5rem;
             }
-            
+
             nav ul {
                 flex-direction: column;
-                gap: 1rem;
+                gap: 0.5rem;
+            }
+
+            nav a {
+                padding: 0.8rem 1.5rem;
+            }
+
+            .research-grid,
+            .education-grid {
+                grid-template-columns: 1fr;
             }
         }
     </style>
 </head>
 <body>
+    <!-- Floating particles -->
+    <div class="particles" id="particles"></div>
+
     <div class="container">
-        <header>
-            <div class="profile-content">
-                <div class="profile-img">
+        <header onclick="animateHeader()">
+            <div class="profile-container">
+                <div class="profile-ring"></div>
+                <div class="profile-img" onclick="changeProfileIcon(event)">
                     👨‍🎓
                 </div>
-                <h1>Dr. Harsha Vardhan Tetali</h1>
-                <p class="subtitle">Postdoctoral Researcher | Department of Computer Science | University of Helsinki</p>
-                <div class="contact-info">
-                    <a href="mailto:harsha.tetali@helsinki.fi" class="contact-item">
-                        📧 harsha.tetali@helsinki.fi
-                    </a>
-                    <a href="https://scholar.google.com/citations?user=sHfiH9MAAAAJ&hl=en" class="contact-item">
-                        🎓 Google Scholar
-                    </a>
-                    <a href="https://orcid.org/0000-0003-1269-265X" class="contact-item">
-                        🔬 ORCID
-                    </a>
-                </div>
+            </div>
+            <h1>Dr. Harsha Vardhan Tetali</h1>
+            <p class="subtitle">Postdoctoral Researcher | Department of Computer Science | University of Helsinki</p>
+            <div class="contact-grid">
+                <a href="mailto:harsha.tetali@helsinki.fi" class="contact-card">
+                    <span class="contact-icon">📧</span>
+                    Email
+                </a>
+                <a href="https://scholar.google.com/citations?user=sHfiH9MAAAAJ&hl=en" class="contact-card" target="_blank">
+                    <span class="contact-icon">🎓</span>
+                    Google Scholar
+                </a>
+                <a href="https://orcid.org/0000-0003-1269-265X" class="contact-card" target="_blank">
+                    <span class="contact-icon">🔬</span>
+                    ORCID
+                </a>
             </div>
         </header>
 
         <nav>
             <ul>
-                <li><a href="#about" onclick="showSection('about')">About</a></li>
-                <li><a href="#research" onclick="showSection('research')">Research</a></li>
-                <li><a href="#publications" onclick="showSection('publications')">Publications</a></li>
-                <li><a href="#teaching" onclick="showSection('teaching')">Teaching</a></li>
-                <li><a href="#diversity" onclick="showSection('diversity')">Diversity & Inclusion</a></li>
-                <li><a href="#cv" onclick="showSection('cv')">CV</a></li>
+                <li><a href="#about" onclick="showSection('about')" class="nav-link">About</a></li>
+                <li><a href="#research" onclick="showSection('research')" class="nav-link">Research</a></li>
+                <li><a href="#publications" onclick="showSection('publications')" class="nav-link">Publications</a></li>
+                <li><a href="#experience" onclick="showSection('experience')" class="nav-link">Experience</a></li>
+                <li><a href="#education" onclick="showSection('education')" class="nav-link">Education</a></li>
+                <li><a href="#cv" onclick="showSection('cv')" class="nav-link">CV</a></li>
             </ul>
         </nav>
 
-        <div id="about" class="section">
+        <div id="about" class="section active">
             <h2>About Me</h2>
-            <p>Welcome to my website! I am Harsha Vardhan Tetali, a Postdoctoral Researcher in the Department of Computer Science at University of Helsinki. My present research focuses on working on machine learning models for metabolic models.</p>
-            <p>I am passionate about research involving mathematical ideas in machine learning and signal processing. I previously worked on modeling of SSD NAND channel modeling at Marvell Semiconductor, Inc. My PhD work mainly focused on physics-informed matrix factorizations. My work has been published in IEEE Transactions on Signal Processing.</p>
-            <p>When I'm not in the lab or classroom, I enjoy long walks around the city of Helsinki.</p>
+            <div class="card expandable" onclick="toggleExpand(this)">
+                <div class="expand-icon">▼</div>
+                <h3>Welcome!</h3>
+                <p>I am Harsha Vardhan Tetali, a Postdoctoral Researcher in the Department of Computer Science at University of Helsinki. My present research focuses on working on machine learning models for metabolic models.</p>
+                <div class="expandable-content">
+                    <p>I am passionate about research involving mathematical ideas in machine learning and signal processing. I previously worked on modeling of SSD NAND channel modeling at Marvell Semiconductor, Inc. My PhD work mainly focused on physics-informed matrix factorizations. My work has been published in IEEE Transactions on Signal Processing.</p>
+                    <p>When I'm not in the lab or classroom, I enjoy long walks around the city of Helsinki, exploring the intersection of technology and nature.</p>
+                </div>
+            </div>
         </div>
 
         <div id="research" class="section hidden">
             <h2>Research</h2>
-            <p>My research statement outlines my scholarly work and future directions in electrical engineering and computer science. I focus on mathematically integrating ideas from various fields into machine learning.</p>
-            
             <div class="research-grid">
-                <div class="research-card">
-                    <h3>Current Research Project 1</h3>
-                    <p>Brief description of your ongoing research project, its significance, and expected outcomes.</p>
+                <div class="research-card" onclick="highlightCard(this)">
+                    <h3>🧬 Machine Learning for Metabolic Models</h3>
+                    <p>Currently developing machine learning models for metabolic systems at University of Helsinki, exploring computational approaches to understand cellular metabolism and biochemical pathways.</p>
                 </div>
-                <div class="research-card">
-                    <h3>Current Research Project 2</h3>
-                    <p>Brief description of another research project, highlighting its innovation and potential impact.</p>
+                <div class="research-card" onclick="highlightCard(this)">
+                    <h3>🔬 Physics-Informed Matrix Factorizations</h3>
+                    <p>My PhD research focused on incorporating physical constraints and domain knowledge into matrix factorization algorithms for improved performance and interpretability in signal processing applications.</p>
                 </div>
-                <div class="research-card">
-                    <h3>Future Directions</h3>
-                    <p>Overview of your research vision and planned investigations for the coming years.</p>
+                <div class="research-card" onclick="highlightCard(this)">
+                    <h3>💾 SSD NAND Channel Modeling</h3>
+                    <p>Industrial research experience at Marvell Semiconductor involving mathematical modeling of storage device channels for improved performance, reliability, and data integrity.</p>
                 </div>
             </div>
-            
-            <h3>Research Statement</h3>
-            <p>My research program is built on the foundation of [your core research philosophy]. I investigate [specific research questions] using [methodological approaches]. This work contributes to [broader field impact] and has implications for [practical applications].</p>
-            
-            <p>My future research agenda includes [future directions], which will advance our understanding of [field/topic] and potentially lead to [anticipated outcomes or applications].</p>
         </div>
 
         <div id="publications" class="section hidden">
             <h2>Publications</h2>
-            <div class="publication">
-                <div class="publication-title">Your Most Recent Publication Title</div>
-                <div class="publication-details">Authors, Journal Name, Year. DOI: [link]</div>
+            <div class="card expandable" onclick="toggleExpand(this)">
+                <div class="expand-icon">▼</div>
+                <h3>Physics-Informed Matrix Factorization Methods</h3>
+                <p><strong>H. V. Tetali</strong>, et al., IEEE Transactions on Signal Processing</p>
+                <div class="expandable-content">
+                    <p>This work presents novel approaches to matrix factorization that incorporate physical constraints and domain knowledge, leading to more robust and interpretable solutions in signal processing applications.</p>
+                </div>
             </div>
-            <div class="publication">
-                <div class="publication-title">Another Important Publication</div>
-                <div class="publication-details">Authors, Conference/Journal Name, Year. DOI: [link]</div>
+            <div class="card expandable" onclick="toggleExpand(this)">
+                <div class="expand-icon">▼</div>
+                <h3>SSD NAND Channel Modeling and Optimization</h3>
+                <p>Industrial research contributions from Marvell Semiconductor</p>
+                <div class="expandable-content">
+                    <p>Developed mathematical models for NAND flash memory channels, contributing to improved storage device performance and reliability in commercial applications.</p>
+                </div>
             </div>
-            <div class="publication">
-                <div class="publication-title">Earlier Work That Established Your Expertise</div>
-                <div class="publication-details">Authors, Journal Name, Year. DOI: [link]</div>
+            <div class="card">
+                <p><strong>📚 For a complete and up-to-date list of publications, visit my <a href="https://scholar.google.com/citations?user=sHfiH9MAAAAJ&hl=en" target="_blank" style="color: #4ecdc4;">Google Scholar profile</a>.</strong></p>
             </div>
-            <p><strong>Note:</strong> For a complete list of publications, please visit my <a href="https://scholar.google.com/citations?user=YOUR_ID" target="_blank">Google Scholar profile</a>.</p>
         </div>
 
-        <div id="teaching" class="section hidden">
-            <h2>Teaching</h2>
-            <p>My teaching philosophy centers on [your core teaching beliefs]. I believe that effective education requires [your approach to teaching], and I strive to create an inclusive learning environment where all students can thrive.</p>
-            
-            <h3>Courses Taught</h3>
-            <div class="teaching-item">
-                <strong>Course Name (Course Code)</strong>
-                <p>Brief description of the course, your role, and any innovations you've implemented.</p>
+        <div id="experience" class="section hidden">
+            <h2>Professional Experience</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="card">
+                        <h3>🏛️ Postdoctoral Researcher</h3>
+                        <p><strong>University of Helsinki</strong> | May 2025 - Present</p>
+                        <p>Conducting research on machine learning models for metabolic systems in the Department of Computer Science.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="card">
+                        <h3>🏢 Staff Engineer</h3>
+                        <p><strong>Marvell Semiconductor, Inc.</strong> | May 2023 - December 2024</p>
+                        <p>Worked on advanced SSD NAND channel modeling, developing mathematical models for storage device optimization.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="card">
+                        <h3>🎯 Research Intern</h3>
+                        <p><strong>Marvell Semiconductor, Inc.</strong> | May 2022 - August 2022</p>
+                        <p>Contributed to channel modeling research for solid-state drive optimization.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="card">
+                        <h3>🎓 Research & Teaching Assistant</h3>
+                        <p><strong>University of Florida</strong> | August 2018 - May 2023</p>
+                        <p>Conducted PhD research on physics-informed matrix factorizations while assisting with undergraduate courses.</p>
+                    </div>
+                </div>
             </div>
-            <div class="teaching-item">
-                <strong>Another Course (Course Code)</strong>
-                <p>Description of another course you've taught and your teaching approach.</p>
-            </div>
-            
-            <h3>Teaching Statement</h3>
-            <p>My teaching statement reflects my commitment to [educational values]. I employ [teaching methods] to engage students and promote deep learning. My approach includes [specific strategies] that have proven effective in [context/results].</p>
-            
-            <p>I am dedicated to mentoring students at all levels, from undergraduates to graduate students and postdocs. My mentoring philosophy emphasizes [mentoring approach] and has resulted in [mentoring outcomes].</p>
         </div>
 
-        <div id="diversity" class="section hidden">
-            <h2>Diversity & Inclusion</h2>
-            <p>I am deeply committed to promoting diversity, equity, and inclusion in academia and beyond. My diversity statement outlines my dedication to creating an environment where all individuals can succeed regardless of their background.</p>
-            
-            <h3>My Commitment</h3>
-            <p>I believe that diversity strengthens our academic community and enhances the quality of research and education. My efforts to promote inclusion include [specific examples of your diversity work].</p>
-            
-            <h3>Diversity Statement</h3>
-            <p>My diversity statement reflects my personal journey and professional commitment to equity. I have [personal experiences that inform your perspective] and have worked to [specific actions you've taken].</p>
-            
-            <p>In my research, I [how you promote diversity in research]. In my teaching, I [how you create inclusive classrooms]. In service, I [how you contribute to institutional diversity efforts].</p>
-            
-            <p>Moving forward, I plan to [future diversity goals and initiatives] to continue advancing equity in [your field/institution].</p>
+        <div id="education" class="section hidden">
+            <h2>Education</h2>
+            <div class="education-grid">
+                <div class="education-card" onclick="flipCard(this)">
+                    <div class="degree">Ph.D. in Electrical and Computer Engineering</div>
+                    <div class="institution">University of Florida</div>
+                    <div class="year">2023</div>
+                </div>
+                <div class="education-card" onclick="flipCard(this)">
+                    <div class="degree">M.Tech. in Electrical Engineering</div>
+                    <div class="institution">Indian Institute of Technology Gandhinagar</div>
+                    <div class="year">2018</div>
+                </div>
+                <div class="education-card" onclick="flipCard(this)">
+                    <div class="degree">B.Tech. in Electronics and Communication Engineering</div>
+                    <div class="institution">Sardar Vallabhbhai National Institute of Technology Surat</div>
+                    <div class="year">2012</div>
+                </div>
+            </div>
+            <div class="card" style="margin-top: 2rem;">
+                <h3>🏆 Awards & Honors</h3>
+                <p><strong>Best Teaching Assistant (Department of ECE)</strong><br>University of Florida, 2018</p>
+            </div>
         </div>
 
         <div id="cv" class="section hidden">
             <h2>Curriculum Vitae</h2>
-            <p>Download my complete CV: <a href="Curriculum_Vitae_2025_Summer.pdf" target="_blank">Curriculum_Vitae_2025_Summer.pdf</a></p>
-            
-            <h3>Education</h3>
-            <ul>
-                <li>Ph.D. in Electrical and Computer Engineering, University of Florida, 2023</li>
-                <li>M.Tech. in Electrical Engineering, Indian Institute of Technology Gandhinagar, 2018</li>
-                <li>B.Tech. in Electronics and Communication Engineering, Sardar Vallabhbhai Nation Institute of Technology Surat, 2012</li>
-            </ul>
-            
-            <h3>Professional Experience</h3>
-            <ul>
-                <li>Postdoctoral Researcher, University of Helsinki, May 2025 - Present</li>
-                <li>Staff Engineer, Marvell Semiconductor, Inc., May 2023 - December 2024</li>
-                <li>SSD NAND Channel Modeling Intern, May 2022 - August 2022</li>
-                <li>Research and Teaching Assistant, University of Florida, August 2018 - May 2023</li>
-                <li>Research and Teaching Assistant, Indian Institute of Technology Gandhinagar, August 2016 - May 2018</li>
-            </ul>
-            
-            <h3>Selected Awards & Honors</h3>
-            <ul>
-                <li>Best Teaching Assistant (Department of ECE), University of Florida 2018</li>
-            </ul>
+            <div class="card">
+                <h3>📄 Download CV</h3>
+                <p><a href="Curriculum_Vitae_2025_Summer.pdf" target="_blank" style="color: #4ecdc4;">Curriculum_Vitae_2025_Summer.pdf</a></p>
+            </div>
+            <div class="card">
+                <h3>🔬 Research Interests</h3>
+                <p>Machine Learning • Signal Processing • Physics-Informed Methods • Matrix Factorizations • Computational Biology • Storage Systems</p>
+            </div>
+            <div class="card">
+                <h3>💻 Technical Skills</h3>
+                <p><strong>Programming:</strong> Python, MATLAB, C++<br>
+                <strong>ML Frameworks:</strong> TensorFlow, PyTorch, NumPy, SciPy<br>
+                <strong>Specialties:</strong> Deep Learning, Physics-Informed Neural Networks, Channel Modeling</p>
+            </div>
         </div>
+    </div>
 
-        <footer>
-            <p>&copy; 2024 Harsha Vardhan Tetali. Built with HTML, CSS, and JavaScript and the helpful Claude from Anthropic. Hosted on GitHub Pages.</p>
-        </footer>
+    <!-- Floating Action Button -->
+    <div class="fab" onclick="scrollToTop()">
+        ↑
     </div>
 
     <script>
+        // Initialize particles
+        function createParticles() {
+            const particles = document.getElementById('particles');
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                particle.style.animationDuration = (Math.random() * 10 + 10) + 's';
+                particles.appendChild(particle);
+            }
+        }
+
+        // Profile icon rotation
+        const profileIcons = ['👨‍🎓', '🧬', '🔬', '💻', '🚀', '⚡'];
+        let currentIcon = 0;
+
+        function changeProfileIcon(event) {
+            event.stopPropagation();
+            currentIcon = (currentIcon + 1) % profileIcons.length;
+            document.querySelector('.profile-img').textContent = profileIcons[currentIcon];
+        }
+
+        // Header animation
+        function animateHeader() {
+            const header = document.querySelector('header');
+            header.style.transform = 'scale(1.05)';
+            setTimeout(() => {
+                header.style.transform = 'scale(1)';
+            }, 300);
+        }
+
+        // Section navigation
         function showSection(sectionId) {
             // Hide all sections
-            const sections = document.querySelectorAll('.section');
-            sections.forEach(section => {
+            document.querySelectorAll('.section').forEach(section => {
                 section.classList.add('hidden');
+                section.classList.remove('active');
             });
-            
-            // Show the selected section
-            document.getElementById(sectionId).classList.remove('hidden');
-            
-            // Update URL hash
+
+            // Show selected section
+            const targetSection = document.getElementById(sectionId);
+            targetSection.classList.remove('hidden');
+            setTimeout(() => {
+                targetSection.classList.add('active');
+            }, 50);
+
+            // Update active nav
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+            });
+            document.querySelector(`a[href="#${sectionId}"]`).classList.add('active');
+
+            // Update URL
             window.location.hash = sectionId;
         }
-        
-        // Show the correct section on page load
+
+        // Expand/collapse functionality
+        function toggleExpand(element) {
+            element.classList.toggle('expanded');
+        }
+
+        // Highlight research cards
+        function highlightCard(card) {
+            // Remove highlight from all cards
+            document.querySelectorAll('.research-card').forEach(c => {
+                c.style.background = 'rgba(255, 255, 255, 0.1)';
+            });
+            
+            // Highlight clicked card
+            card.style.background = 'rgba(255, 255, 255, 0.2)';
+            
+            // Reset after 2 seconds
+            setTimeout(() => {
+                card.style.background = 'rgba(255, 255, 255, 0.1)';
+            }, 2000);
+        }
+
+        // Flip education cards
+        function flipCard(card) {
+            card.style.transform = 'rotateY(180deg)';
+            setTimeout(() => {
+                card.style.transform = 'rotateY(0deg)';
+            }, 600);
+        }
+
+        // Scroll to top
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+
+        // Initialize on page load
         window.addEventListener('load', function() {
+            createParticles();
+            
             const hash = window.location.hash.substring(1);
             if (hash) {
                 showSection(hash);
@@ -463,14 +839,15 @@
                 showSection('about');
             }
         });
-        
-        // Handle back/forward navigation
+
+        // Handle navigation
         window.addEventListener('hashchange', function() {
             const hash = window.location.hash.substring(1);
             if (hash) {
                 showSection(hash);
             }
         });
-    </script>
-</body>
-</html>
+
+        // Add keyboard navigation
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight' || e.key === 'Arrow
