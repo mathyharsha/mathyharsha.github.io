@@ -104,6 +104,13 @@
             padding-bottom: 5px;
         }
 
+        .section h3 {
+            color: #2c3e50;
+            margin-bottom: 15px;
+            margin-top: 25px;
+            font-size: 1.2rem;
+        }
+
         .section p {
             margin-bottom: 15px;
             text-align: justify;
@@ -120,6 +127,39 @@
         .research-area h3 {
             color: #2c3e50;
             margin-bottom: 10px;
+            margin-top: 0;
+        }
+
+        .research-aim {
+            background: #f0f8ff;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-left: 4px solid #1e90ff;
+            border-radius: 4px;
+        }
+
+        .research-aim h4 {
+            color: #1e90ff;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+
+        .framework-highlight {
+            background: #fff3cd;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid #ffc107;
+            border-radius: 4px;
+        }
+
+        .equation {
+            background: #f8f9fa;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            text-align: center;
+            border: 1px solid #ddd;
         }
 
         .publication {
@@ -211,6 +251,7 @@
         <ul>
             <li><a href="#about" onclick="showSection('about')" id="nav-about">About</a></li>
             <li><a href="#research" onclick="showSection('research')" id="nav-research">Research</a></li>
+            <li><a href="#research-aims" onclick="showSection('research-aims')" id="nav-research-aims">Research Aims</a></li>
             <li><a href="#publications" onclick="showSection('publications')" id="nav-publications">Publications</a></li>
             <li><a href="#experience" onclick="showSection('experience')" id="nav-experience">Experience</a></li>
             <li><a href="#education" onclick="showSection('education')" id="nav-education">Education</a></li>
@@ -248,6 +289,83 @@
         
         <h3>Research Philosophy</h3>
         <p>My research ideology is built on the foundation of mathematically rigorous approaches to machine learning problems. I investigate how domain-specific knowledge can be incorporated into learning algorithms to improve both performance and interpretability. This work contributes to the broader field of physics-informed machine learning and has practical applications in engineering and computational biology.</p>
+    </div>
+
+    <div id="research-aims" class="section">
+        <h2>Research Aims & Vision</h2>
+        
+        <div class="framework-highlight">
+            <h3>Core Research Framework</h3>
+            <p>My research focuses on developing interpretable physics-informed machine learning algorithms for structural health monitoring (SHM). The central aim is to enhance interpretability within physics-informed machine learning (PIML) by leveraging classical machine learning algorithms that are better suited for interpretability in critical applications.</p>
+            
+            <div class="equation">
+                θ* = arg max ||M(y - F(θ))|| + γ||T(θ, c)||
+            </div>
+            
+            <p>This optimization framework incorporates physical constraints through regularization, where y represents data from a physical process, F is a machine learning model, M is a masking operator, and T represents a partial differential operator with coefficients c.</p>
+        </div>
+
+        <h3>Primary Research Directions</h3>
+        
+        <div class="research-aim">
+            <h4>1. Hybrid Mathematical Methodologies</h4>
+            <p>Developing novel methodologies that extend beyond Physics-informed Matrix Factorization into more sophisticated mathematical domains. This includes exploring constraint-based approaches in differential geometry, particularly involving manifold structures, and investigating how physical constraints can be meaningfully incorporated into abstract mathematical frameworks.</p>
+        </div>
+
+        <div class="research-aim">
+            <h4>2. Interpretability in AI Systems</h4>
+            <p>Advancing the development of more transparent and reliable AI systems for physics-based data. Key focus areas include designing architectures that maintain high performance while reducing data requirements through intelligent incorporation of domain knowledge and physical constraints, bridging the gap between traditional physical modeling and modern machine learning approaches.</p>
+        </div>
+
+        <div class="research-aim">
+            <h4>3. Deep Learning Theory & Foundations</h4>
+            <p>Conducting fundamental research in deep learning interpretability with emphasis on developing theoretical foundations for neural networks. This includes investigating mathematical principles underlying neural network behavior, analyzing approximation capabilities in various function spaces, and establishing rigorous frameworks for understanding learning dynamics and generalization properties.</p>
+        </div>
+
+        <h3>Specific Research Applications</h3>
+        
+        <div class="research-area">
+            <h3>Inverse Imaging for Defect Detection</h3>
+            <p>Developing matrix factorization models combined with wave operators for structural health monitoring. This approach enables interpretability by recovering distinct wave data modes and successfully identifying relevant artifacts in regions with missing data, particularly valuable for non-destructive evaluation applications.</p>
+        </div>
+
+        <div class="research-area">
+            <h3>Data-driven Approximate Eigen-decomposition</h3>
+            <p>Exploring how wave-informed matrix factorization exhibits data-driven approximate eigen-decomposition properties. This enables extraction of vectors that closely approximate eigenvectors of wave operators, with approximation errors guided by input data characteristics rather than finding exact eigenvectors.</p>
+        </div>
+
+        <div class="research-area">
+            <h3>Environmental Sustainability Applications</h3>
+            <p>Applying physics-informed approaches to environmental monitoring and infrastructure assessment. This includes monitoring critical infrastructure from power plants to renewable energy systems, where the framework's ability to capture nonlinear behaviors while maintaining computational efficiency and interpretability is crucial.</p>
+        </div>
+
+        <h3>Theoretical Contributions</h3>
+        
+        <div class="framework-highlight">
+            <p>My research encompasses three interconnected theoretical frameworks:</p>
+            <ul style="margin-left: 20px; margin-top: 10px;">
+                <li><strong>Systematic incorporation of external constraints</strong> through regularization to guide mathematical behavior</li>
+                <li><strong>Emergence of interpretable structures</strong> through regularized formulations</li>
+                <li><strong>Theoretical reinterpretation of computational algorithms</strong> through established classical mathematical constructs, revealing deeper connections between modern methods and established theory</li>
+            </ul>
+        </div>
+
+        <h3>Future Research Vision</h3>
+        <p>Looking ahead, I am particularly interested in extending these theoretical frameworks to more sophisticated mathematical landscapes, especially in nonlinear partial differential equations, manifolds, and related fields. This extension presents opportunities to explore how physical constraints and interpretability principles can enhance our understanding of complex mathematical systems.</p>
+        
+        <p>My vision involves developing new theoretical tools that bridge the gap between physics-informed approaches and advanced mathematical structures, potentially leading to novel insights in both theoretical and applied domains. To fully realize this vision, I seek collaborations with researchers in functional analysis, differential geometry, and theoretical optimization.</p>
+
+        <h3>Impact & Applications</h3>
+        
+        <div class="research-area">
+            <h3>Educational Impact</h3>
+            <p>My research contributes directly to educational initiatives, with theoretical frameworks and algorithms now serving as foundational material in graduate-level Physics-informed Machine Learning courses. This demonstrates the pedagogical value and broader educational impact beyond technical contributions.</p>
+        </div>
+
+        <div class="research-area">
+            <h3>Nuclear Safety Applications</h3>
+            <p>Practical applications include Department of Energy-funded projects for non-destructive evaluation of nuclear fuel rod cladding, leveraging wave-informed matrix factorizations to create "digital fingerprints" of ceramic composite materials for rapid structural integrity assessment.</p>
+        </div>
     </div>
 
     <div id="publications" class="section">
