@@ -10,657 +10,501 @@
             padding: 0;
             box-sizing: border-box;
         }
-
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            font-family: Arial, sans-serif;
             line-height: 1.6;
-            color: #2c3e50;
-            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 1200px;
+            color: #333;
+            background: #fff;
+            padding: 20px;
+            max-width: 800px;
             margin: 0 auto;
-            padding: 20px;
         }
-
         header {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 40px;
+            text-align: left;
             margin-bottom: 30px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            display: flex;
-            align-items: center;
-            gap: 40px;
-            flex-wrap: wrap;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ddd;
         }
-
-        .profile-photo {
-            width: 200px;
-            height: 200px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 6px solid #3498db;
-            box-shadow: 0 15px 35px rgba(52, 152, 219, 0.3);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            flex-shrink: 0;
-        }
-
-        .profile-photo:hover {
-            transform: scale(1.05);
-            box-shadow: 0 20px 40px rgba(52, 152, 219, 0.4);
-        }
-
-        .header-info {
-            flex: 1;
-            min-width: 300px;
-        }
-
         h1 {
-            font-size: 2.8rem;
-            margin-bottom: 15px;
-            color: #2c3e50;
-            font-weight: 700;
-            background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: 
+#2c3e50;
         }
-
         .subtitle {
-            font-size: 1.3rem;
-            color: #7f8c8d;
-            margin-bottom: 25px;
-            font-weight: 400;
-            line-height: 1.4;
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 15px;
         }
-
         .contact-info {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 15px;
+            margin-top: 15px;
         }
-
         .contact-info a {
-            display: inline-flex;
-            align-items: center;
-            padding: 12px 20px;
-            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
-            color: white;
+            color: 
+#3498db;
             text-decoration: none;
-            border-radius: 25px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            box-shadow: 0 5px 15px rgba(52, 152, 219, 0.3);
+            margin: 0 10px;
         }
-
         .contact-info a:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.4);
-            background: linear-gradient(135deg, #2980b9 0%, #3498db 100%);
+            text-decoration: underline;
         }
-
         nav {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
-            padding: 20px;
             margin-bottom: 30px;
-            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
         }
-
         nav ul {
             list-style: none;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 12px;
+            padding: 0;
         }
-
+        nav li {
+            margin-bottom: 8px;
+        }
         nav a {
             display: block;
-            padding: 15px 20px;
-            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
-            color: #2c3e50;
+            padding: 10px 15px;
+            background: 
+#f8f9fa;
+            color: #333;
             text-decoration: none;
-            border-radius: 12px;
-            transition: all 0.3s ease;
-            text-align: center;
-            font-weight: 500;
-            border: 2px solid transparent;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            transition: background-color 0.3s;
         }
-
         nav a:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
-            background: linear-gradient(135deg, #e9ecef 0%, #dee2e6 100%);
+            background: 
+#e9ecef;
         }
-
         nav a.active {
-            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
+            background: 
+#3498db;
             color: white;
-            border-color: #3498db;
-            box-shadow: 0 8px 25px rgba(52, 152, 219, 0.3);
         }
-
-        .main-content {
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-radius: 20px;
-            padding: 40px;
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
-            border: 1px solid rgba(255, 255, 255, 0.2);
-            margin-bottom: 30px;
-        }
-
         .section {
+            margin-bottom: 30px;
             display: none;
-            animation: fadeIn 0.5s ease-in-out;
         }
-
         .section.active {
             display: block;
         }
-
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
         .section h2 {
-            color: #2c3e50;
-            margin-bottom: 30px;
-            font-size: 2.2rem;
-            font-weight: 600;
-            position: relative;
-            padding-bottom: 15px;
+            color: 
+#2c3e50;
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+            border-bottom: 2px solid 
+#3498db;
+            padding-bottom: 5px;
         }
-
-        .section h2::after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 60px;
-            height: 4px;
-            background: linear-gradient(135deg, #3498db 0%, #2980b9 100%);
-            border-radius: 2px;
-        }
-
         .section h3 {
-            color: #2c3e50;
-            margin-bottom: 20px;
-            margin-top: 30px;
-            font-size: 1.4rem;
-            font-weight: 600;
-        }
-
-        .section p {
-            margin-bottom: 20px;
-            text-align: justify;
-            color: #34495e;
-            font-size: 1.1rem;
-            line-height: 1.7;
-        }
-
-        .research-area, .research-aim, .framework-highlight, .publication, .experience-item, .education-item {
-            background: rgba(248, 249, 250, 0.8);
-            padding: 25px;
-            margin-bottom: 20px;
-            border-radius: 15px;
-            transition: all 0.3s ease;
-            border-left: 5px solid #3498db;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
-        }
-
-        .research-area:hover, .research-aim:hover, .framework-highlight:hover, 
-        .publication:hover, .experience-item:hover, .education-item:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
-        }
-
-        .research-area {
-            border-left-color: #3498db;
-        }
-
-        .research-aim {
-            background: rgba(240, 248, 255, 0.8);
-            border-left-color: #1e90ff;
-        }
-
-        .research-aim h4 {
-            color: #1e90ff;
+            color: 
+#2c3e50;
             margin-bottom: 15px;
+            margin-top: 25px;
             font-size: 1.2rem;
-            font-weight: 600;
         }
-
+        .section p {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+        .research-area {
+            background: 
+#f8f9fa;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-left: 4px solid 
+#3498db;
+            border-radius: 4px;
+        }
+        .research-area h3 {
+            color: 
+#2c3e50;
+            margin-bottom: 10px;
+            margin-top: 0;
+        }
+        .research-aim {
+            background: 
+#f0f8ff;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-left: 4px solid 
+#1e90ff;
+            border-radius: 4px;
+        }
+        .research-aim h4 {
+            color: 
+#1e90ff;
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
         .framework-highlight {
-            background: rgba(255, 243, 205, 0.8);
-            border-left-color: #ffc107;
+            background: 
+#fff3cd;
+            padding: 15px;
+            margin: 15px 0;
+            border-left: 4px solid 
+#ffc107;
+            border-radius: 4px;
         }
-
         .equation {
-            background: rgba(248, 249, 250, 0.9);
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 12px;
+            background: 
+#f8f9fa;
+            padding: 10px;
+            margin: 10px 0;
+            border-radius: 4px;
             font-family: 'Courier New', monospace;
             text-align: center;
-            border: 2px solid #e9ecef;
-            font-size: 1.1rem;
-            font-weight: 500;
+            border: 1px solid #ddd;
         }
-
         .publication {
-            border-left-color: #9b59b6;
+            background: 
+#f8f9fa;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-left: 4px solid 
+#9b59b6;
+            border-radius: 4px;
         }
-
         .publication-title {
-            font-weight: 600;
-            color: #2c3e50;
-            margin-bottom: 10px;
-            font-size: 1.1rem;
-            line-height: 1.4;
+            font-weight: bold;
+            color: 
+#2c3e50;
+            margin-bottom: 5px;
         }
-
         .publication-details {
-            color: #7f8c8d;
-            font-size: 1rem;
-            line-height: 1.5;
+            color: #666;
+            font-size: 0.9rem;
         }
-
-        .publication-details a {
-            color: #3498db;
-            text-decoration: none;
+        .experience-item {
+            background: 
+#f8f9fa;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-left: 4px solid 
+#e67e22;
+            border-radius: 4px;
+        }
+        .education-item {
+            background: 
+#f8f9fa;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-left: 4px solid 
+#27ae60;
+            border-radius: 4px;
+        }
+        .degree {
+            font-weight: bold;
+            color: 
+#2c3e50;
+        }
+        .institution {
+            color: #666;
+            font-style: italic;
+        }
+        .year {
+            color: 
+#e67e22;
             font-weight: 500;
         }
-
-        .publication-details a:hover {
-            text-decoration: underline;
-        }
-
-        .experience-item {
-            border-left-color: #e67e22;
-        }
-
-        .education-item {
-            border-left-color: #27ae60;
-        }
-
-        .degree {
-            font-weight: 600;
-            color: #2c3e50;
-            font-size: 1.1rem;
-            margin-bottom: 5px;
-        }
-
-        .institution {
-            color: #7f8c8d;
-            font-style: italic;
-            margin-bottom: 5px;
-        }
-
-        .year {
-            color: #e67e22;
-            font-weight: 600;
-            font-size: 0.95rem;
-        }
-
         footer {
             text-align: center;
-            padding: 30px;
-            color: #7f8c8d;
-            background: rgba(255, 255, 255, 0.7);
-            backdrop-filter: blur(10px);
-            border-radius: 15px;
+            padding-top: 20px;
             margin-top: 30px;
-            font-size: 1rem;
+            border-top: 1px solid #ddd;
+            color: #666;
         }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .container {
-                padding: 15px;
+        @media (max-width: 600px) {
+            body {
+                padding: 10px;
             }
-
-            header {
-                flex-direction: column;
-                text-align: center;
-                padding: 30px 20px;
-                gap: 25px;
-            }
-
-            .profile-photo {
-                width: 150px;
-                height: 150px;
-            }
-
             h1 {
-                font-size: 2.2rem;
+                font-size: 1.5rem;
             }
-
-            .subtitle {
-                font-size: 1.1rem;
-            }
-
-            .contact-info {
-                justify-content: center;
-                gap: 10px;
-            }
-
             .contact-info a {
-                padding: 10px 15px;
-                font-size: 0.9rem;
+                display: block;
+                margin: 5px 0;
             }
-
-            nav ul {
-                grid-template-columns: 1fr;
-            }
-
-            .main-content {
-                padding: 25px 20px;
-            }
-
-            .section h2 {
-                font-size: 1.8rem;
-            }
-
-            .research-area, .research-aim, .framework-highlight, 
-            .publication, .experience-item, .education-item {
-                padding: 20px;
-            }
-        }
-
-        @media (max-width: 480px) {
-            h1 {
-                font-size: 1.8rem;
-            }
-
-            .subtitle {
-                font-size: 1rem;
-            }
-
-            .section h2 {
-                font-size: 1.6rem;
-            }
-
-            .contact-info {
-                flex-direction: column;
-                align-items: center;
-            }
-
-            .contact-info a {
-                width: 100%;
-                max-width: 250px;
-                justify-content: center;
-            }
-        }
-
-        /* Loading animation for the profile photo */
-        .profile-photo {
-            opacity: 0;
-            animation: photoFadeIn 1s ease-in-out 0.5s forwards;
-        }
-
-        @keyframes photoFadeIn {
-            from { opacity: 0; transform: scale(0.8); }
-            to { opacity: 1; transform: scale(1); }
-        }
-
-        /* Improved list styling in framework sections */
-        .framework-highlight ul {
-            margin-left: 0;
-            padding-left: 0;
-        }
-
-        .framework-highlight li {
-            margin-bottom: 10px;
-            padding-left: 20px;
-            position: relative;
-        }
-
-        .framework-highlight li::before {
-            content: '▶';
-            position: absolute;
-            left: 0;
-            color: #ffc107;
-            font-weight: bold;
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <header>
-            <img src="profile_pic_website.jpeg" alt="Dr. Harsha Vardhan Tetali" class="profile-photo" onerror="this.style.display='none';">
-            <div class="header-info">
-                <h1>Dr. Harsha Vardhan Tetali</h1>
-                <p class="subtitle">Postdoctoral Researcher | Department of Computer Science | University of Helsinki</p>
-                <div class="contact-info">
-                    <a href="mailto:harsha.tetali@helsinki.fi">📧 Email</a>
-                    <a href="https://scholar.google.com/citations?user=sHfiH9MAAAAJ&hl=en">🎓 Google Scholar</a>
-                    <a href="https://orcid.org/0000-0003-1269-265X">🔗 ORCID</a>
-                </div>
+    <header>
+        <h1>Dr. Harsha Vardhan Tetali</h1>
+        <p class="subtitle">Postdoctoral Researcher | Department of Computer Science | University of Helsinki</p>
+        <div class="contact-info">
+            <a href="mailto:harsha.tetali@helsinki.fi">harsha.tetali@helsinki.fi</a>
+            <a href="https://scholar.google.com/citations?user=sHfiH9MAAAAJ&hl=en">Google Scholar</a>
+            <a href="https://orcid.org/0000-0003-1269-265X">ORCID</a>
+        </div>
+    </header>
+    <nav>
+        <ul>
+            <li><a href="#about" onclick="showSection('about')" id="nav-about">About</a></li>
+            <li><a href="#research" onclick="showSection('research')" id="nav-research">Research</a></li>
+            <li><a href="#research-aims" onclick="showSection('research-aims')" id="nav-research-aims">Research Aims</a></li>
+            <li><a href="#publications" onclick="showSection('publications')" id="nav-publications">Publications</a></li>
+            <li><a href="#experience" onclick="showSection('experience')" id="nav-experience">Experience</a></li>
+            <li><a href="#education" onclick="showSection('education')" id="nav-education">Education</a></li>
+            <li><a href="#cv" onclick="showSection('cv')" id="nav-cv">CV</a></li>
+        </ul>
+    </nav>
+    <div id="about" class="section active">
+        <h2>About Me</h2>
+        <p>Welcome to my website! I am Harsha Vardhan Tetali, a Postdoctoral Researcher in the Department of Computer Science at University of Helsinki. My present research focuses on working on machine learning models for metabolic models.</p>
+        <p>I am passionate about research involving mathematical ideas in machine learning and signal processing. I previously worked on modeling of SSD NAND channel modeling at Marvell Semiconductor, Inc. My PhD work mainly focused on physics-informed matrix factorizations. My work has been published in IEEE Transactions on Signal Processing.</p>
+        <p>When I'm not in the lab or classroom, I enjoy long walks around the city of Helsinki.</p>
+    </div>
+    <div id="research" class="section">
+        <h2>Research</h2>
+        <p>My research integrates mathematical concepts from various fields into machine learning, with a focus on physics-informed approaches and signal processing applications.</p>
+        <div class="research-area">
+            <h3>Machine Learning for Metabolic Models</h3>
+            <p>Currently developing machine learning models for metabolic systems at University of Helsinki, exploring computational approaches to understand cellular metabolism.</p>
+        </div>
+        <div class="research-area">
+            <h3>Physics-Informed Matrix Factorizations</h3>
+            <p>My PhD research focused on incorporating physical constraints and domain knowledge into matrix factorization algorithms for improved performance and interpretability.</p>
+        </div>
+        <div class="research-area">
+            <h3>SSD NAND Channel Modeling</h3>
+            <p>Industrial research experience at Marvell Semiconductor involving mathematical modeling of storage device channels for improved performance and reliability.</p>
+        </div>
+        <h3>Research Philosophy</h3>
+        <p>My research ideology is built on the foundation of mathematically rigorous approaches to machine learning problems. I investigate how domain-specific knowledge can be incorporated into learning algorithms to improve both performance and interpretability. This work contributes to the broader field of physics-informed machine learning and has practical applications in engineering and computational biology.</p>
+    </div>
+    <div id="research-aims" class="section">
+        <h2>Research Aims & Vision</h2>
+        <div class="framework-highlight">
+            <h3>Core Research Framework</h3>
+            <p>My research focuses on developing interpretable physics-informed machine learning algorithms for structural health monitoring (SHM). The central aim is to enhance interpretability within physics-informed machine learning (PIML) by leveraging classical machine learning algorithms that are better suited for interpretability in critical applications.</p>
+            <div class="equation">
+                θ* = arg max ||M(y - F(θ))|| + γ||T(θ, c)||
             </div>
-        </header>
-
-        <nav>
-            <ul>
-                <li><a href="#about" onclick="showSection('about')" id="nav-about">About</a></li>
-                <li><a href="#research" onclick="showSection('research')" id="nav-research">Research</a></li>
-                <li><a href="#research-aims" onclick="showSection('research-aims')" id="nav-research-aims">Research Aims</a></li>
-                <li><a href="#publications" onclick="showSection('publications')" id="nav-publications">Publications</a></li>
-                <li><a href="#experience" onclick="showSection('experience')" id="nav-experience">Experience</a></li>
-                <li><a href="#education" onclick="showSection('education')" id="nav-education">Education</a></li>
-                <li><a href="#cv" onclick="showSection('cv')" id="nav-cv">CV</a></li>
+            <p>This optimization framework incorporates physical constraints through regularization, where y represents data from a physical process, F is a machine learning model, M is a masking operator, and T represents a partial differential operator with coefficients c.</p>
+        </div>
+        <h3>Primary Research Directions</h3>
+        <div class="research-aim">
+            <h4>1. Hybrid Mathematical Methodologies</h4>
+            <p>Developing novel methodologies that extend beyond Physics-informed Matrix Factorization into more sophisticated mathematical domains. This includes exploring constraint-based approaches in differential geometry, particularly involving manifold structures, and investigating how physical constraints can be meaningfully incorporated into abstract mathematical frameworks.</p>
+        </div>
+        <div class="research-aim">
+            <h4>2. Interpretability in AI Systems</h4>
+            <p>Advancing the development of more transparent and reliable AI systems for physics-based data. Key focus areas include designing architectures that maintain high performance while reducing data requirements through intelligent incorporation of domain knowledge and physical constraints, bridging the gap between traditional physical modeling and modern machine learning approaches.</p>
+        </div>
+        <div class="research-aim">
+            <h4>3. Deep Learning Theory & Foundations</h4>
+            <p>Conducting fundamental research in deep learning interpretability with emphasis on developing theoretical foundations for neural networks. This includes investigating mathematical principles underlying neural network behavior, analyzing approximation capabilities in various function spaces, and establishing rigorous frameworks for understanding learning dynamics and generalization properties.</p>
+        </div>
+        <h3>Specific Research Applications</h3>
+        <div class="research-area">
+            <h3>Inverse Imaging for Defect Detection</h3>
+            <p>Developing matrix factorization models combined with wave operators for structural health monitoring. This approach enables interpretability by recovering distinct wave data modes and successfully identifying relevant artifacts in regions with missing data, particularly valuable for non-destructive evaluation applications.</p>
+        </div>
+        <div class="research-area">
+            <h3>Data-driven Approximate Eigen-decomposition</h3>
+            <p>Exploring how wave-informed matrix factorization exhibits data-driven approximate eigen-decomposition properties. This enables extraction of vectors that closely approximate eigenvectors of wave operators, with approximation errors guided by input data characteristics rather than finding exact eigenvectors.</p>
+        </div>
+        <div class="research-area">
+            <h3>Environmental Sustainability Applications</h3>
+            <p>Applying physics-informed approaches to environmental monitoring and infrastructure assessment. This includes monitoring critical infrastructure from power plants to renewable energy systems, where the framework's ability to capture nonlinear behaviors while maintaining computational efficiency and interpretability is crucial.</p>
+        </div>
+        <h3>Theoretical Contributions</h3>
+        <div class="framework-highlight">
+            <p>My research encompasses three interconnected theoretical frameworks:</p>
+            <ul style="margin-left: 20px; margin-top: 10px;">
+                <li><strong>Systematic incorporation of external constraints</strong> through regularization to guide mathematical behavior</li>
+                <li><strong>Emergence of interpretable structures</strong> through regularized formulations</li>
+                <li><strong>Theoretical reinterpretation of computational algorithms</strong> through established classical mathematical constructs, revealing deeper connections between modern methods and established theory</li>
             </ul>
-        </nav>
-
-        <div class="main-content">
-            <div id="about" class="section active">
-                <h2>About Me</h2>
-                <p>Welcome to my website! I am Harsha Vardhan Tetali, a Postdoctoral Researcher in the Department of Computer Science at University of Helsinki. My present research focuses on working on machine learning models for metabolic models.</p>
-                
-                <p>I am passionate about research involving mathematical ideas in machine learning and signal processing. I previously worked on modeling of SSD NAND channel modeling at Marvell Semiconductor, Inc. My PhD work mainly focused on physics-informed matrix factorizations. My work has been published in IEEE Transactions on Signal Processing.</p>
-                
-                <p>When I'm not in the lab or classroom, I enjoy long walks around the city of Helsinki.</p>
-            </div>
-
-            <div id="research" class="section">
-                <h2>Research</h2>
-                <p>My research integrates mathematical concepts from various fields into machine learning, with a focus on physics-informed approaches and signal processing applications.</p>
-                
-                <div class="research-area">
-                    <h3>Machine Learning for Metabolic Models</h3>
-                    <p>Currently developing machine learning models for metabolic systems at University of Helsinki, exploring computational approaches to understand cellular metabolism.</p>
-                </div>
-                
-                <div class="research-area">
-                    <h3>Physics-Informed Matrix Factorizations</h3>
-                    <p>My PhD research focused on incorporating physical constraints and domain knowledge into matrix factorization algorithms for improved performance and interpretability.</p>
-                </div>
-                
-                <div class="research-area">
-                    <h3>SSD NAND Channel Modeling</h3>
-                    <p>Industrial research experience at Marvell Semiconductor involving mathematical modeling of storage device channels for improved performance and reliability.</p>
-                </div>
-                
-                <h3>Research Philosophy</h3>
-                <p>My research ideology is built on the foundation of mathematically rigorous approaches to machine learning problems. I investigate how domain-specific knowledge can be incorporated into learning algorithms to improve both performance and interpretability. This work contributes to the broader field of physics-informed machine learning and has practical applications in engineering and computational biology.</p>
-            </div>
-
-            <div id="research-aims" class="section">
-                <h2>Research Aims & Vision</h2>
-                
-                <div class="framework-highlight">
-                    <h3>Core Research Framework</h3>
-                    <p>My research focuses on developing interpretable physics-informed machine learning algorithms for structural health monitoring (SHM). The central aim is to enhance interpretability within physics-informed machine learning (PIML) by leveraging classical machine learning algorithms that are better suited for interpretability in critical applications.</p>
-                    
-                    <div class="equation">
-                        θ* = arg max ||M(y - F(θ))|| + γ||T(θ, c)||
-                    </div>
-                    
-                    <p>This optimization framework incorporates physical constraints through regularization, where y represents data from a physical process, F is a machine learning model, M is a masking operator, and T represents a partial differential operator with coefficients c.</p>
-                </div>
-
-                <h3>Primary Research Directions</h3>
-                
-                <div class="research-aim">
-                    <h4>1. Hybrid Mathematical Methodologies</h4>
-                    <p>Developing novel methodologies that extend beyond Physics-informed Matrix Factorization into more sophisticated mathematical domains. This includes exploring constraint-based approaches in differential geometry, particularly involving manifold structures, and investigating how physical constraints can be meaningfully incorporated into abstract mathematical frameworks.</p>
-                </div>
-
-                <div class="research-aim">
-                    <h4>2. Interpretability in AI Systems</h4>
-                    <p>Advancing the development of more transparent and reliable AI systems for physics-based data. Key focus areas include designing architectures that maintain high performance while reducing data requirements through intelligent incorporation of domain knowledge and physical constraints, bridging the gap between traditional physical modeling and modern machine learning approaches.</p>
-                </div>
-
-                <div class="research-aim">
-                    <h4>3. Deep Learning Theory & Foundations</h4>
-                    <p>Conducting fundamental research in deep learning interpretability with emphasis on developing theoretical foundations for neural networks. This includes investigating mathematical principles underlying neural network behavior, analyzing approximation capabilities in various function spaces, and establishing rigorous frameworks for understanding learning dynamics and generalization properties.</p>
-                </div>
-
-                <h3>Specific Research Applications</h3>
-                
-                <div class="research-area">
-                    <h3>Inverse Imaging for Defect Detection</h3>
-                    <p>Developing matrix factorization models combined with wave operators for structural health monitoring. This approach enables interpretability by recovering distinct wave data modes and successfully identifying relevant artifacts in regions with missing data, particularly valuable for non-destructive evaluation applications.</p>
-                </div>
-
-                <div class="research-area">
-                    <h3>Data-driven Approximate Eigen-decomposition</h3>
-                    <p>Exploring how wave-informed matrix factorization exhibits data-driven approximate eigen-decomposition properties. This enables extraction of vectors that closely approximate eigenvectors of wave operators, with approximation errors guided by input data characteristics rather than finding exact eigenvectors.</p>
-                </div>
-
-                <div class="research-area">
-                    <h3>Environmental Sustainability Applications</h3>
-                    <p>Applying physics-informed approaches to environmental monitoring and infrastructure assessment. This includes monitoring critical infrastructure from power plants to renewable energy systems, where the framework's ability to capture nonlinear behaviors while maintaining computational efficiency and interpretability is crucial.</p>
-                </div>
-
-                <h3>Theoretical Contributions</h3>
-                
-                <div class="framework-highlight">
-                    <p>My research encompasses three interconnected theoretical frameworks:</p>
-                    <ul style="margin-left: 20px; margin-top: 10px;">
-                        <li><strong>Systematic incorporation of external constraints</strong> through regularization to guide mathematical behavior</li>
-                        <li><strong>Emergence of interpretable structures</strong> through regularized formulations</li>
-                        <li><strong>Theoretical reinterpretation of computational algorithms</strong> through established classical mathematical constructs, revealing deeper connections between modern methods and established theory</li>
-                    </ul>
-                </div>
-
-                <h3>Future Research Vision</h3>
-                <p>Looking ahead, I am particularly interested in extending these theoretical frameworks to more sophisticated mathematical landscapes, especially in nonlinear partial differential equations, manifolds, and related fields. This extension presents opportunities to explore how physical constraints and interpretability principles can enhance our understanding of complex mathematical systems.</p>
-                
-                <p>My vision involves developing new theoretical tools that bridge the gap between physics-informed approaches and advanced mathematical structures, potentially leading to novel insights in both theoretical and applied domains. To fully realize this vision, I seek collaborations with researchers in functional analysis, differential geometry, and theoretical optimization.</p>
-
-                <h3>Impact & Applications</h3>
-                
-                <div class="research-area">
-                    <h3>Educational Impact</h3>
-                    <p>My research contributes directly to educational initiatives, with theoretical frameworks and algorithms now serving as foundational material in graduate-level Physics-informed Machine Learning courses. This demonstrates the pedagogical value and broader educational impact beyond technical contributions.</p>
-                </div>
-
-                <div class="research-area">
-                    <h3>Nuclear Safety Applications</h3>
-                    <p>Practical applications include Department of Energy-funded projects for non-destructive evaluation of nuclear fuel rod cladding, leveraging wave-informed matrix factorizations to create "digital fingerprints" of ceramic composite materials for rapid structural integrity assessment.</p>
-                </div>
-            </div>
-
-            <div id="publications" class="section">
-                <h2>Publications</h2>
-                <p>My research has been published in top-tier journals and conferences across signal processing, machine learning, and structural health monitoring.</p>
-                
-                <h3>Journal Publications</h3>
-                <div class="publication">
-                    <div class="publication-title">Wave Physics-Informed Matrix Factorizations</div>
-                    <div class="publication-details"><strong>Harsha Vardhan Tetali</strong>, Joel B. Harley, Benjamin D. Haeffele<br>
-                    <em>IEEE Transactions on Signal Processing (IEEE-TSP)</em>, 2024<br>
-                    <a href="https://ieeexplore.ieee.org/abstract/document/10379844" target="_blank">DOI Link</a></div>
-                </div>
-                
-                <div class="publication">
-                    <div class="publication-title">Finding Faults in PV Systems: Supervised and Unsupervised Dictionary Learning with SSTDR</div>
-                    <div class="publication-details">Ayobami S. Edun, Cody LaFlamme, Samuel R. Kingston, <strong>Harsha Vardhan Tetali</strong>, Evan Benoit, Michael Scarpulla, Cynthia M. Furse, Joel B. Harley<br>
-                    <em>IEEE Sensors Journal</em>, 2020<br>
-                    <a href="https://ieeexplore.ieee.org/document/9217487" target="_blank">DOI Link</a></div>
-                </div>
-                
-                <h3>Conference Publications</h3>
-                <div class="publication">
-                    <div class="publication-title">Physics-Informed Guided Wavefield Data Completion</div>
-                    <div class="publication-details"><strong>Harsha Vardhan Tetali</strong>, Joel B. Harley<br>
-                    <em>Structural Health Monitoring</em>, 2023<br>
-                    <a href="https://www.dpi-proceedings.com/index.php/shm2023/article/view/36993" target="_blank">Conference Link</a></div>
-                </div>
-                
-                <div class="publication">
-                    <div class="publication-title">Learning Tensor Representations to Improve Quality of Wavefield Data</div>
-                    <div class="publication-details"><strong>Harsha Vardhan Tetali</strong>, Joel B. Harley<br>
-                    <em>50th Annual Review of Progress in Quantitative Nondestructive Evaluation (QNDE)</em>, Austin, Texas, USA, 2023<br>
-                    <a href="https://doi.org/10.1115/QNDE2023-108620" target="_blank">DOI Link</a></div>
-                </div>
-                
-                <div class="publication">
-                    <div class="publication-title">On the Generalization Error of Meta Learning for the Gibbs Algorithm</div>
-                    <div class="publication-details">Yuheng Bu, <strong>Harsha Vardhan Tetali</strong>, Gholamali Aminian, Miguel Rodrigues, Gregory Wornell<br>
-                    <em>2023 IEEE International Symposium on Information Theory (ISIT)</em>, Taipei, Taiwan, 2023<br>
-                    <a href="https://ieeexplore.ieee.org/abstract/document/10206566" target="_blank">DOI Link</a></div>
-                </div>
-                
-                <div class="publication">
-                    <div class="publication-title">A physics-informed machine learning based dispersion curve estimation for non-homogeneous media</div>
-                    <div class="publication-details"><strong>Harsha Vardhan Tetali</strong>, Joel B. Harley<br>
-                    <em>183rd Meeting of the Acoustical Society of America</em>, Nashville, Tennessee, USA, 2022<br>
-                    <a href="https://pubs.aip.org/asa/poma/article/50/1/055003/2893496" target="_blank">Conference Link</a></div>
-                </div>
-                
-                <div class="publication">
-                    <div class="publication-title">Unsupervised Wave Physics-Informed Representation Learning for Guided Wavefield Reconstruction</div>
-                    <div class="publication-details">Joel B. Harley, Benjamin D. Haeffele, <strong>Harsha Vardhan Tetali</strong><br>
-                    <em>International Conference on Dynamic Data Driven Applications Systems (DDDAS)</em>, Boston, Massachusetts, USA<br>
-                    <a href="https://link.springer.com/chapter/10.1007/978-3-031-52670-1_16" target="_blank">Conference Link</a></div>
-                </div>
-                
-                <div class="publication">
-                    <div class="publication-title">Wave Physics Informed Dictionary Learning In One Dimension</div>
-                    <div class="publication-details"><strong>Harsha Vardhan Tetali</strong>, K. S. Alguri, J. B. Harley<br>
-                    <em>2019 IEEE 29th International Workshop on Machine Learning for Signal Processing (MLSP)</em>, Pittsburgh, PA, USA, 2019<br>
-                    <a href="https://ieeexplore.ieee.org/abstract/document/8918835" target="_blank">DOI Link</a> | <a href="https://sigport.org/documents/wave-physics-informed-dictionary-learning-one-dimension" target="_blank">Poster</a></div>
-                </div>
-                
-                <div class="publication">
-                    <div class="publication-title">Beyond Black-box Dictionary Learning for Waves</div>
-                    <div class="publication-details"><strong>Harsha Vardhan Tetali</strong>, K. Supreet Alguri, Joel B. Harley<br>
-                    <em>Machine Learning and the Physical Sciences - Workshop at the 33rd Conference on Neural Information Processing Systems</em>, Vancouver, CA, 2019<br>
-                    <a href="https://ml4physicalsciences.github.io/2019/files/NeurIPS_ML4PS_2019_158.pdf" target="_blank">Workshop Paper</a></div>
-                </div>
-                
-                <div class="publication">
-                    <div class="publication-title">Learning Guided Wave Dispersion Curves from Multi-Path Reflections with Compressive Sensing</div>
-                    <div class="publication-details">Joel B. Harley, K. Supreet Alguri, <strong>Harsha Vardhan Tetali</strong>, Soorosh Sabeti<br>
-                    <em>Structural Health Monitoring</em>, 2019<br>
-                    <a href="http://www.dpi-proceedings.com/index.php/shm2019/article/view/32388" target="_blank">Conference Link</a></div>
-                </div>
-                
-                <h3>ArXiv Preprints</h3>
-                <div class="publication">
-                    <div class="publication-title">Wave-informed Matrix Factorizations with Global Optimality Guarantees</div>
-                    <div class="publication-details"><strong>Harsha Vardhan Tetali</strong>, Joel B. Harley, Benjamin D. Haeffele<br>
-                    <em>arXiv preprint</em><br>
-                    <a href="https://arxiv.org/abs/2107.09144" target="_blank">Access from ArXiv</a></div>
-                </div>
-                
-                <p><strong>For a complete and up-to-date list of publications, please visit my <a href="https://scholar.google.com/citations?user=sHfiH9MAAAAJ&hl=en" target="_blank">Google Scholar profile</a>.</strong></p>
-            </div>
-
-            <div id="experience" class="section">
-                <h2>Professional Experience</h2>
-                
-                <div class="experience-item">
-                    <strong>Postdoctoral Researcher</strong> | University of Helsinki<br>
-                    <span class="year">May 2025 - Present</span>
-                    <p>Conducting research on machine learning models for metabolic systems in the Department of Computer
+        </div>
+        <h3>Future Research Vision</h3>
+        <p>Looking ahead, I am particularly interested in extending these theoretical frameworks to more sophisticated mathematical landscapes, especially in nonlinear partial differential equations, manifolds, and related fields. This extension presents opportunities to explore how physical constraints and interpretability principles can enhance our understanding of complex mathematical systems.</p>
+        <p>My vision involves developing new theoretical tools that bridge the gap between physics-informed approaches and advanced mathematical structures, potentially leading to novel insights in both theoretical and applied domains. To fully realize this vision, I seek collaborations with researchers in functional analysis, differential geometry, and theoretical optimization.</p>
+        <h3>Impact & Applications</h3>
+        <div class="research-area">
+            <h3>Educational Impact</h3>
+            <p>My research contributes directly to educational initiatives, with theoretical frameworks and algorithms now serving as foundational material in graduate-level Physics-informed Machine Learning courses. This demonstrates the pedagogical value and broader educational impact beyond technical contributions.</p>
+        </div>
+        <div class="research-area">
+            <h3>Nuclear Safety Applications</h3>
+            <p>Practical applications include Department of Energy-funded projects for non-destructive evaluation of nuclear fuel rod cladding, leveraging wave-informed matrix factorizations to create "digital fingerprints" of ceramic composite materials for rapid structural integrity assessment.</p>
+        </div>
+    </div>
+    <div id="publications" class="section">
+        <h2>Publications</h2>
+        <p>My research has been published in top-tier journals and conferences across signal processing, machine learning, and structural health monitoring.</p>
+        <h3>Journal Publications</h3>
+        <div class="publication">
+            <div class="publication-title">Wave Physics-Informed Matrix Factorizations</div>
+            <div class="publication-details"><strong>Harsha Vardhan Tetali</strong>, Joel B. Harley, Benjamin D. Haeffele<br>
+            <em>IEEE Transactions on Signal Processing (IEEE-TSP)</em>, 2024<br>
+            <a href="https://ieeexplore.ieee.org/abstract/document/10379844" target="_blank">DOI Link</a></div>
+        </div>
+        <div class="publication">
+            <div class="publication-title">Finding Faults in PV Systems: Supervised and Unsupervised Dictionary Learning with SSTDR</div>
+            <div class="publication-details">Ayobami S. Edun, Cody LaFlamme, Samuel R. Kingston, <strong>Harsha Vardhan Tetali</strong>, Evan Benoit, Michael Scarpulla, Cynthia M. Furse, Joel B. Harley<br>
+            <em>IEEE Sensors Journal</em>, 2020<br>
+            <a href="https://ieeexplore.ieee.org/document/9217487" target="_blank">DOI Link</a></div>
+        </div>
+        <h3>Conference Publications</h3>
+        <div class="publication">
+            <div class="publication-title">Physics-Informed Guided Wavefield Data Completion</div>
+            <div class="publication-details"><strong>Harsha Vardhan Tetali</strong>, Joel B. Harley<br>
+            <em>Structural Health Monitoring</em>, 2023<br>
+            <a href="https://www.dpi-proceedings.com/index.php/shm2023/article/view/36993" target="_blank">Conference Link</a></div>
+        </div>
+        <div class="publication">
+            <div class="publication-title">Learning Tensor Representations to Improve Quality of Wavefield Data</div>
+            <div class="publication-details"><strong>Harsha Vardhan Tetali</strong>, Joel B. Harley<br>
+            <em>50th Annual Review of Progress in Quantitative Nondestructive Evaluation (QNDE)</em>, Austin, Texas, USA, 2023<br>
+            <a href="https://doi.org/10.1115/QNDE2023-108620" target="_blank">DOI Link</a></div>
+        </div>
+        <div class="publication">
+            <div class="publication-title">On the Generalization Error of Meta Learning for the Gibbs Algorithm</div>
+            <div class="publication-details">Yuheng Bu, <strong>Harsha Vardhan Tetali</strong>, Gholamali Aminian, Miguel Rodrigues, Gregory Wornell<br>
+            <em>2023 IEEE International Symposium on Information Theory (ISIT)</em>, Taipei, Taiwan, 2023<br>
+            <a href="https://ieeexplore.ieee.org/abstract/document/10206566" target="_blank">DOI Link</a></div>
+        </div>
+        <div class="publication">
+            <div class="publication-title">A physics-informed machine learning based dispersion curve estimation for non-homogeneous media</div>
+            <div class="publication-details"><strong>Harsha Vardhan Tetali</strong>, Joel B. Harley<br>
+            <em>183rd Meeting of the Acoustical Society of America</em>, Nashville, Tennessee, USA, 2022<br>
+            <a href="https://pubs.aip.org/asa/poma/article/50/1/055003/2893496" target="_blank">Conference Link</a></div>
+        </div>
+        <div class="publication">
+            <div class="publication-title">Unsupervised Wave Physics-Informed Representation Learning for Guided Wavefield Reconstruction</div>
+            <div class="publication-details">Joel B. Harley, Benjamin D. Haeffele, <strong>Harsha Vardhan Tetali</strong><br>
+            <em>International Conference on Dynamic Data Driven Applications Systems (DDDAS)</em>, Boston, Massachusetts, USA<br>
+            <a href="https://link.springer.com/chapter/10.1007/978-3-031-52670-1_16" target="_blank">Conference Link</a></div>
+        </div>
+        <div class="publication">
+            <div class="publication-title">Wave Physics Informed Dictionary Learning In One Dimension</div>
+            <div class="publication-details"><strong>Harsha Vardhan Tetali</strong>, K. S. Alguri, J. B. Harley<br>
+            <em>2019 IEEE 29th International Workshop on Machine Learning for Signal Processing (MLSP)</em>, Pittsburgh, PA, USA, 2019<br>
+            <a href="https://ieeexplore.ieee.org/abstract/document/8918835" target="_blank">DOI Link</a> | <a href="https://sigport.org/documents/wave-physics-informed-dictionary-learning-one-dimension" target="_blank">Poster</a></div>
+        </div>
+        <div class="publication">
+            <div class="publication-title">Beyond Black-box Dictionary Learning for Waves</div>
+            <div class="publication-details"><strong>Harsha Vardhan Tetali</strong>, K. Supreet Alguri, Joel B. Harley<br>
+            <em>Machine Learning and the Physical Sciences - Workshop at the 33rd Conference on Neural Information Processing Systems</em>, Vancouver, CA, 2019<br>
+            <a href="https://ml4physicalsciences.github.io/2019/files/NeurIPS_ML4PS_2019_158.pdf" target="_blank">Workshop Paper</a></div>
+        </div>
+        <div class="publication">
+            <div class="publication-title">Learning Guided Wave Dispersion Curves from Multi-Path Reflections with Compressive Sensing</div>
+            <div class="publication-details">Joel B. Harley, K. Supreet Alguri, <strong>Harsha Vardhan Tetali</strong>, Soorosh Sabeti<br>
+            <em>Structural Health Monitoring</em>, 2019<br>
+            <a href="http://www.dpi-proceedings.com/index.php/shm2019/article/view/32388" target="_blank">Conference Link</a></div>
+        </div>
+        <h3>ArXiv Preprints</h3>
+        <div class="publication">
+            <div class="publication-title">Wave-informed Matrix Factorizations with Global Optimality Guarantees</div>
+            <div class="publication-details"><strong>Harsha Vardhan Tetali</strong>, Joel B. Harley, Benjamin D. Haeffele<br>
+            <em>arXiv preprint</em><br>
+            <a href="https://arxiv.org/abs/2107.09144" target="_blank">Access from ArXiv</a></div>
+        </div>
+        <p><strong>For a complete and up-to-date list of publications, please visit my <a href="https://scholar.google.com/citations?user=sHfiH9MAAAAJ&hl=en" target="_blank">Google Scholar profile</a>.</strong></p>
+    </div>
+    <div id="experience" class="section">
+        <h2>Professional Experience</h2>
+        <div class="experience-item">
+            <strong>Postdoctoral Researcher</strong> | University of Helsinki<br>
+            <span class="year">May 2025 - Present</span>
+            <p>Conducting research on machine learning models for metabolic systems in the Department of Computer Science.</p>
+        </div>
+        <div class="experience-item">
+            <strong>Staff Engineer</strong> | Marvell Semiconductor, Inc.<br>
+            <span class="year">May 2023 - December 2024</span>
+            <p>Worked on advanced SSD NAND channel modeling, developing mathematical models for storage device optimization.</p>
+        </div>
+        <div class="experience-item">
+            <strong>SSD NAND Channel Modeling Intern</strong> | Marvell Semiconductor, Inc.<br>
+            <span class="year">May 2022 - August 2022</span>
+            <p>Contributed to channel modeling research for solid-state drive optimization.</p>
+        </div>
+        <div class="experience-item">
+            <strong>Research and Teaching Assistant</strong> | University of Florida<br>
+            <span class="year">August 2018 - May 2023</span>
+            <p>Conducted PhD research on physics-informed matrix factorizations while assisting with undergraduate courses.</p>
+        </div>
+        <div class="experience-item">
+            <strong>Research and Teaching Assistant</strong> | Indian Institute of Technology Gandhinagar<br>
+            <span class="year">August 2016 - May 2018</span>
+            <p>Pursued M.Tech degree while assisting with research projects and teaching responsibilities.</p>
+        </div>
+    </div>
+    <div id="education" class="section">
+        <h2>Education</h2>
+        <div class="education-item">
+            <div class="degree">Ph.D. in Electrical and Computer Engineering</div>
+            <div class="institution">University of Florida</div>
+            <div class="year">2023</div>
+        </div>
+        <div class="education-item">
+            <div class="degree">M.Tech. in Electrical Engineering</div>
+            <div class="institution">Indian Institute of Technology Gandhinagar</div>
+            <div class="year">2018</div>
+        </div>
+        <div class="education-item">
+            <div class="degree">B.Tech. in Electronics and Communication Engineering</div>
+            <div class="institution">Sardar Vallabhbhai National Institute of Technology Surat</div>
+            <div class="year">2018</div>
+        </div>
+        <h3>Awards & Honors</h3>
+        <div class="education-item">
+            <strong>Best Teaching Assistant (Department of ECE)</strong><br>
+            University of Florida, 2018
+        </div>
+    </div>
+    <div id="cv" class="section">
+        <h2>Curriculum Vitae</h2>
+        <p>Download my complete CV: <a href="Curriculum_Vitae_2025_Summer.pdf" target="_blank">Curriculum_Vitae_2025_Summer.pdf</a></p>
+        <h3>Research Interests</h3>
+        <p>Machine Learning, Signal Processing, Physics-Informed Methods, Matrix Factorizations, Computational Biology, Storage Systems</p>
+        <h3>Skills & Expertise</h3>
+        <p><strong>Programming:</strong> Python, MATLAB, C++<br>
+        <strong>Machine Learning:</strong> Deep Learning, Matrix Factorization, Physics-Informed Neural Networks<br>
+        <strong>Signal Processing:</strong> Channel Modeling, Optimization, Statistical Methods<br>
+        <strong>Tools:</strong> TensorFlow, PyTorch, NumPy, SciPy</p>
+        <h3>Professional Affiliations</h3>
+        <p>IEEE Member, Professional associations in signal processing and machine learning</p>
+    </div>
+    <footer>
+        <p>&copy; 2025 Harsha Vardhan Tetali. All rights reserved.</p>
+    </footer>
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            // Remove active class from all nav items
+            const navItems = document.querySelectorAll('nav a');
+            navItems.forEach(item => {
+                item.classList.remove('active');
+            });
+            // Show the selected section
+            document.getElementById(sectionId).classList.add('active');
+            // Add active class to selected nav item
+            document.getElementById('nav-' + sectionId).classList.add('active');
+            // Update URL hash
+            window.location.hash = sectionId;
+        }
+        // Show the correct section on page load
+        window.addEventListener('load', function() {
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                showSection(hash);
+            } else {
+                showSection('about');
+            }
+        });
+        // Handle back/forward navigation
+        window.addEventListener('hashchange', function() {
+            const hash = window.location.hash.substring(1);
+            if (hash) {
+                showSection(hash);
+            }
+        });
+    </script>
+</body>
+</html>
