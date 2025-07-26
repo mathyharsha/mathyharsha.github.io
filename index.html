@@ -92,6 +92,7 @@
             border: 1px solid #ddd;
             border-radius: 4px;
             transition: background-color 0.3s;
+            cursor: pointer;
         }
 
         nav a:hover {
@@ -279,13 +280,13 @@
 
     <nav>
         <ul>
-            <li><a href="#about" onclick="showSection('about')" id="nav-about">About</a></li>
-            <li><a href="#research" onclick="showSection('research')" id="nav-research">Research</a></li>
-            <li><a href="#research-aims" onclick="showSection('research-aims')" id="nav-research-aims">Research Aims</a></li>
-            <li><a href="#publications" onclick="showSection('publications')" id="nav-publications">Publications</a></li>
-            <li><a href="#experience" onclick="showSection('experience')" id="nav-experience">Experience</a></li>
-            <li><a href="#education" onclick="showSection('education')" id="nav-education">Education</a></li>
-            <li><a href="#cv" onclick="showSection('cv')" id="nav-cv">CV</a></li>
+            <li><a onclick="showSection('about')" id="nav-about" class="active">About</a></li>
+            <li><a onclick="showSection('research')" id="nav-research">Research</a></li>
+            <li><a onclick="showSection('research-aims')" id="nav-research-aims">Research Aims</a></li>
+            <li><a onclick="showSection('publications')" id="nav-publications">Publications</a></li>
+            <li><a onclick="showSection('experience')" id="nav-experience">Experience</a></li>
+            <li><a onclick="showSection('education')" id="nav-education">Education</a></li>
+            <li><a onclick="showSection('cv')" id="nav-cv">CV</a></li>
         </ul>
     </nav>
 
@@ -556,4 +557,43 @@
         
         <h3>Skills & Expertise</h3>
         <p><strong>Programming:</strong> Python, MATLAB, C++<br>
-        <strong>Machine Learning:</strong> Deep Learning, Matrix
+        <strong>Machine Learning:</strong> Deep Learning, Matrix Factorization, Physics-Informed Neural Networks<br>
+        <strong>Signal Processing:</strong> Channel Modeling, Optimization, Statistical Methods<br>
+        <strong>Tools:</strong> TensorFlow, PyTorch, NumPy, SciPy</p>
+        
+        <h3>Professional Affiliations</h3>
+        <p>IEEE Member, Professional associations in signal processing and machine learning</p>
+    </div>
+
+    <footer>
+        <p>&copy; 2025 Harsha Vardhan Tetali. All rights reserved.</p>
+    </footer>
+
+    <script>
+        function showSection(sectionId) {
+            // Hide all sections
+            const sections = document.querySelectorAll('.section');
+            sections.forEach(section => {
+                section.classList.remove('active');
+            });
+            
+            // Remove active class from all nav items
+            const navItems = document.querySelectorAll('nav a');
+            navItems.forEach(item => {
+                item.classList.remove('active');
+            });
+            
+            // Show the selected section
+            document.getElementById(sectionId).classList.add('active');
+            
+            // Add active class to selected nav item
+            document.getElementById('nav-' + sectionId).classList.add('active');
+        }
+        
+        // Show the about section by default
+        document.addEventListener('DOMContentLoaded', function() {
+            showSection('about');
+        });
+    </script>
+</body>
+</html>
