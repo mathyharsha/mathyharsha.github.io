@@ -44,7 +44,7 @@ Note: If you don't have specific publication images, you can use:
 
 2. Add your profile picture as `profile_pic_website.jpeg` in the root directory
 
-3. Add your CV PDF as `Curriculum_Vitae_2025_Summer.pdf` in the root directory
+3. Add your CV PDF as `Curriculum_Vitae.pdf` in the root directory
 
 4. Place all required images in the `images/` folder
 
