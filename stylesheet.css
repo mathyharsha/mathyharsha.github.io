@@ -74,6 +74,11 @@ a:hover {
   text-decoration: none;
 }
 
+body {
+  margin: 0;
+  padding: 0;
+}
+
 body,
 td,
 th,
@@ -102,8 +107,9 @@ papertitle {
 
 n {
   font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 58px;
-  font-weight: 900
+  font-size: 42px;
+  font-weight: 700;
+  display: inline-block;
 }
 
 n a {
